@@ -998,11 +998,24 @@
           <td><strong>${item.name}</strong></td>
           <td>${item.job}</td>
           <td>${item.year || '-'}</td>
-          <td style="color: ${statusColor}; font-weight: bold;">${item.status}</td>
+          <td>
+            <select onchange="updateAlumniStatus(${index}, this.value)" style="color: ${statusColor}; font-weight: bold; border: 1px solid #ccc; padding: 4px; border-radius: 4px; background: transparent;">
+              <option value="Chưa gửi" ${item.status === 'Chưa gửi' ? 'selected' : ''}>Chưa gửi</option>
+              <option value="Đã gửi lời mời" ${item.status === 'Đã gửi lời mời' ? 'selected' : ''}>Đã gửi lời mời</option>
+              <option value="Đã kết nối" ${item.status === 'Đã kết nối' ? 'selected' : ''}>Đã kết nối</option>
+              <option value="Đã phỏng vấn" ${item.status === 'Đã phỏng vấn' ? 'selected' : ''}>Đã phỏng vấn</option>
+            </select>
+          </td>
           <td>${item.notes}</td>
         </tr>
       `;
       });
+    }
+
+    function updateAlumniStatus(index, newStatus) {
+      alumniData[index].status = newStatus;
+      renderAlumni(); // Cập nhật màu sắc mới
+      updateMetrics(); // Tự động tính lại KPI ngay lập tức
     }
 
     function addAlumni(e) {
