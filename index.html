@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="Kế hoạch 90 ngày – LinkedIn & Networking KTQT 2027" />
+  <meta property="og:description" content="Dashboard theo dõi tiến độ xây dựng LinkedIn All-Star và mạng lưới Alumni DAV của sinh viên Kinh tế Quốc tế 2027. Giao diện đẹp, chuẩn thiết kế." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1616469829581-73993eb86b02?auto=format&fit=crop&q=80&w=1200&h=630" />
+  <title>Kế hoạch 90 ngày – LinkedIn & Networking KTQT 2027</title>
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --secondary: #2575fc;
+      --accent: #00d2ff;
+      --success: #28a745;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --light: #f8f9fa;
+      --dark: #343a40;
+      --shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: var(--dark);
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #2c3e50;
+      text-align: center;
+    }
+
+    h1 {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .objective-card {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: var(--radius);
+      padding: 20px 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .objective-card h2 {
+      color: white;
+      text-align: left;
+      margin-top: 0;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+      padding-bottom: 10px;
+    }
+
+    .objective-card ul {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .metric-card {
+      background: white;
+      padding: 20px;
+      border-radius: var(--radius);
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+      border-bottom: 4px solid var(--secondary);
+    }
+
+    .metric-card h4 {
+      margin: 0 0 10px 0;
+      color: #666;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    /* Tabs CSS */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    .tab-btn {
+      background: #fff;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      margin: 0;
+    }
+
+    .tab-btn:hover {
+      background: var(--light);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-btn.active {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 0 0 20px 0;
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--primary);
+    }
+
+    .card h2 {
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: var(--primary);
+      text-align: left;
+    }
+
+    .timeline-month {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 10px 15px;
+      border-radius: 8px;
+      margin: 25px 0 10px 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .timeline-month:first-of-type {
+      margin-top: 10px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 0 0 15px 0;
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    th,
+    td {
+      border: 1px solid #e0e0e0;
+      padding: 10px 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    th {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #f9fbfd;
+    }
+
+    tr:hover {
+      background: #eef5ff;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin: 4px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+
+    button.action-btn {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+      margin: 5px 0 15px 0;
+    }
+
+    button.action-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    button.action-btn.success {
+      background: linear-gradient(90deg, var(--success), #20c997);
+    }
+
+    .checkbox-cell {
+      text-align: center;
+      font-size: 18px;
+    }
+
+    .checkbox-cell input {
+      transform: scale(1.3);
+    }
+
+    .checklist {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .checklist li {
+      background: #f8f9fa;
+      margin-bottom: 10px;
+      padding: 12px;
+      border-radius: 6px;
+      border-left: 4px solid var(--secondary);
+      display: flex;
+      align-items: center;
+    }
+
+    .checklist input[type="checkbox"] {
+      margin-right: 12px;
+      transform: scale(1.4);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 25px;
+      border-radius: var(--radius);
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      border: 3px solid var(--primary);
+      position: relative;
+    }
+
+    .modal-content h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 24px;
+      cursor: pointer;
+      color: #999;
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .close-btn:hover {
+      color: var(--danger);
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .kpi-phase {
+      background: #eef5ff;
+      border-left: 5px solid var(--accent);
+      padding: 15px 20px;
+      margin-bottom: 25px;
+      border-radius: var(--radius);
+    }
+
+    .kpi-phase h4 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.1rem;
+    }
+
+    .kpi-phase ul {
+      margin-bottom: 0;
+      padding-left: 20px;
+    }
+
+    .final-kpi {
+      background: #fff3cd;
+      border-left-color: var(--warning);
+    }
+
+    .final-kpi h4 {
+      color: #856404;
+    }
+
+    .final-kpi select,
+    .final-kpi input {
+      padding: 6px;
+      margin: 0;
+    }
+    /* Mobile Optimization */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      .objective-card {
+        padding: 15px;
+      }
+      .objective-card ul {
+        font-size: 1rem;
+        padding-left: 20px;
+      }
+      .metrics-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .metric-card {
+        padding: 15px 10px;
+      }
+      .metric-card h4 {
+        font-size: 0.9rem;
+      }
+      .metric-value {
+        font-size: 1.5rem;
+      }
+      .tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+      .tabs::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+      .tab-btn {
+        flex: 0 0 auto;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+      }
+      .card {
+        padding: 15px;
+      }
+      .modal-content {
+        padding: 15px;
+        width: 95%;
+      }
+      .action-btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      /* Tables mobile */
+      .table-responsive-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin-bottom: 15px;
+        border-radius: var(--radius);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .table-responsive-wrapper table {
+        margin-bottom: 0;
+        box-shadow: none;
+        min-width: 600px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>🚀 Kế hoạch 90 ngày – LinkedIn & Networking KTQT 2027</h1>
+
+    <!-- Mục tiêu 90 ngày -->
+    <div class="objective-card">
+      <h2>🎯 Mục tiêu 90 ngày</h2>
+      <ul>
+        <li>Hoàn thiện LinkedIn profile đạt trạng thái All-Star</li>
+        <li>Xây dựng hình ảnh chuyên nghiệp trên nền tảng số</li>
+        <li>Kết nối tối thiểu 50 cựu sinh viên DAV</li>
+        <li>Thực hiện ít nhất 5 informational interview với cựu sinh viên hoặc chuyên gia ngành</li>
+      </ul>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <h4>Tổng Connections</h4>
+        <div class="metric-value" id="totalConnections">0</div>
+      </div>
+      <div class="metric-card">
+        <h4>Lời mời đã gửi</h4>
+        <div class="metric-value" id="totalInvites">0 / 50</div>
+      </div>
+      <div class="metric-card">
+        <h4>Alumni Interviews</h4>
+        <div class="metric-value" id="totalInterviews">0 / 10</div>
+      </div>
+      <div class="metric-card">
+        <h4>Trạng thái Profile</h4>
+        <div class="metric-value" id="profileStatus" style="font-size: 1.5rem; color: var(--warning);">Đang hoàn thiện
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs Navigation -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab(event, 'tab-kehoach')">Bảng kế hoạch 90 ngày</button>
+      <button class="tab-btn" onclick="switchTab(event, 'tab-allstar')">Checklist All-Star</button>
+      <button class="tab-btn" onclick="switchTab(event, 'tab-alumni')">Mạng lưới Alumni DAV</button>
+      <button class="tab-btn" onclick="switchTab(event, 'tab-kpi')">Theo dõi KPI Hàng tuần</button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div id="tab-kehoach" class="tab-content active">
+      <div class="card">
+        <h2>📅 Kế hoạch triển khai theo thời gian</h2>
+
+        <div class="timeline-month">Tháng 1: Khởi tạo & Định hình</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tuần</th>
+              <th>Mục tiêu chính</th>
+              <th>Công việc cụ thể</th>
+              <th>Hoàn thành</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="5">Tuần 1-2</td>
+              <td rowspan="5">Bắt đầu Nội dung & Networking cơ bản</td>
+              <td>LinkedIn profile đạt trạng thái All-Star</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 2 bài (Insight + Learning)</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Kết nối 10–15 alumni DAV</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Follow 5–10 recruiter/MNCs</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Tham gia 2–3 nhóm ngành KTQT/Business</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="3">Tuần 3-4</td>
+              <td rowspan="3">Củng cố giai đoạn 1</td>
+              <td>Kiểm tra số connections (mục tiêu ≥100)</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Chỉnh sửa lại Profile nếu cần</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 1 bài Story ngắn/Cập nhật</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="kpi-phase">
+          <h4>🎯 KPI Giai đoạn 1:</h4>
+          <ul>
+            <li>Profile đạt trạng thái All‑Star.</li>
+            <li>100+ connections trên LinkedIn.</li>
+            <li>≥10 alumni DAV đã kết nối.</li>
+            <li>≥3 bài đăng chất lượng (chia theo 3 dạng trên).</li>
+          </ul>
+        </div>
+
+        <div class="timeline-month">Tháng 2: Tiếp cận & Mở rộng</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tuần</th>
+              <th>Mục tiêu chính</th>
+              <th>Công việc cụ thể</th>
+              <th>Hoàn thành</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="4">Tuần 5</td>
+              <td rowspan="4">Gửi lời mời & Networking</td>
+              <td>Xây dựng danh sách 50 alumni mục tiêu</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Gửi 10 lời mời cá nhân hóa đầu tiên</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 1 bài chuyên môn/Case study</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Tương tác, comment 5 bài viết</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="3">Tuần 6</td>
+              <td rowspan="3">Đẩy mạnh Interview</td>
+              <td>Gửi thêm 8 lời mời cá nhân hóa</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Thực hiện 1-2 informational interviews</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 1 bài phân tích xu hướng</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="3">Tuần 7</td>
+              <td rowspan="3">Nuôi dưỡng quan hệ</td>
+              <td>Gửi thêm 7 lời mời cá nhân hóa</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Tương tác, comment 5-10 bài tuần này</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 1 bài học từ trường/thực tập</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Tuần 8</td>
+              <td rowspan="2">Kiểm tra KPI Giai đoạn 2</td>
+              <td>Kiểm tra số connections & lời mời chấp nhận</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng 1 bài chuyên môn</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="kpi-phase">
+          <h4>🎯 KPI Giai đoạn 2:</h4>
+          <ul>
+            <li>≥30 alumni DAV kết nối mới.</li>
+            <li>≥300 connections tổng trên LinkedIn.</li>
+            <li>2 buổi informational interview đã hoàn thành.</li>
+            <li>4–5 bài đăng chuyên môn chi tiết (case study, phân tích xu hướng, bài học thực tập).</li>
+          </ul>
+        </div>
+
+        <div class="timeline-month">Tháng 3: Chuyển hóa & Đánh giá</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Tuần</th>
+              <th>Mục tiêu chính</th>
+              <th>Công việc cụ thể</th>
+              <th>Hoàn thành</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="3">Tuần 9</td>
+              <td rowspan="3">Phỏng vấn & Gửi lời mời</td>
+              <td>Gửi 10 lời mời mới cho Alumni</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Thực hiện 2 interviews mới</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Đăng bài theo định vị cá nhân</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Tuần 10</td>
+              <td rowspan="2">Tập trung Phỏng vấn</td>
+              <td>Thực hiện 1-2 interviews mới</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Follow-up với các connection trước</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="3">Tuần 11</td>
+              <td rowspan="3">Hoàn tất mục tiêu lời mời</td>
+              <td>Gửi nốt 15 lời mời (Đạt KPI 50)</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Thực hiện các interviews còn lại</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Kiểm tra/Trả lời tin nhắn recruiter</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+
+            <tr>
+              <td rowspan="2">Tuần 12</td>
+              <td rowspan="2">Tổng kết hành trình</td>
+              <td>Viết bài tổng kết chặng đường 90 ngày</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+            <tr>
+              <td>Lập pipeline ứng tuyển Internship/MTT</td>
+              <td class="checkbox-cell"><input type="checkbox"></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="kpi-phase final-kpi">
+          <h4>🏆 Bảng KPI đánh giá cuối kỳ (90 ngày)</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>KPI</th>
+                <th>Mục tiêu</th>
+                <th>Thực tế</th>
+                <th>Đánh giá</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>LinkedIn All‑Star</td>
+                <td>Đạt trạng thái All‑Star</td>
+                <td><input type="text" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Số alumni kết nối mới (DAV)</td>
+                <td>≥50 người</td>
+                <td><input type="number" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Informational Interviews</td>
+                <td>≥5 buổi</td>
+                <td><input type="number" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>LinkedIn SSI Score</td>
+                <td>>60/100</td>
+                <td><input type="number" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Profile views tăng</td>
+                <td>Tăng ít nhất 3 lần so với ban đầu</td>
+                <td><input type="text" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Tin nhắn từ recruiter</td>
+                <td>≥1 tin nhắn chủ động từ recruiter</td>
+                <td><input type="number" placeholder="?"></td>
+                <td>
+                  <select>
+                    <option value="">Chọn</option>
+                    <option value="✅">✅ Đạt</option>
+                    <option value="❌">❌ Chưa đạt</option>
+                  </select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-allstar" class="tab-content">
+      <div class="card">
+        <h2>⭐ Checklist Profile All-Star (30 ngày đầu)</h2>
+        <ul class="checklist" id="profileChecklist">
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Ảnh đại diện (Profile Photo) chuyên nghiệp</li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Ảnh bìa (Banner) thể hiện định hướng ngành nghề
+          </li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Headline ấn tượng, chứa từ khóa (KTQT, DAV, lĩnh
+            vực quan tâm)</li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Phần About (ít nhất 3 đoạn ngắn gọn)</li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Experience (Kinh nghiệm làm việc/CLB/Dự án)</li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Education (Trường, chuyên ngành, GPA)</li>
+          <li><input type="checkbox" onchange="updateProfileStatus()"> Thêm ít nhất 5 Kỹ năng (Skills)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="tab-alumni" class="tab-content">
+      <div class="card">
+        <h2>🤝 Quản lý mạng lưới Alumni DAV</h2>
+        <button class="action-btn" onclick="openModal('alumniModal')">+ Thêm Alumni mới</button>
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên Alumni</th>
+              <th>Vị trí / Công ty</th>
+              <th>Năm TN</th>
+              <th>Trạng thái</th>
+              <th>Ghi chú</th>
+            </tr>
+          </thead>
+          <tbody id="alumniTableBody">
+            <!-- Data will be populated here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="tab-kpi" class="tab-content">
+      <div class="card">
+        <h2>📈 Theo dõi KPI Hàng tuần</h2>
+        <button class="action-btn success" onclick="openModal('kpiModal')">+ Cập nhật KPI Tuần</button>
+        <table>
+          <thead>
+            <tr>
+              <th>Tuần</th>
+              <th>Connections</th>
+              <th>Lời mời gửi</th>
+              <th>Interviews</th>
+              <th>Bài đăng</th>
+              <th>Đánh giá</th>
+            </tr>
+          </thead>
+          <tbody id="kpiTableBody">
+            <!-- KPI Data will be populated here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal Thêm Alumni -->
+  <div id="alumniModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('alumniModal')">&times;</button>
+      <h3>Thêm Alumni mới</h3>
+      <form id="alumniForm" onsubmit="addAlumni(event)">
+        <div class="form-group">
+          <label>Tên Alumni:</label>
+          <input type="text" id="alumniName" required>
+        </div>
+        <div class="form-group">
+          <label>Vị trí & Công ty:</label>
+          <input type="text" id="alumniJob" required>
+        </div>
+        <div class="form-group">
+          <label>Năm tốt nghiệp (Khóa):</label>
+          <input type="number" id="alumniYear">
+        </div>
+        <div class="form-group">
+          <label>Trạng thái:</label>
+          <select id="alumniStatus">
+            <option value="Chưa gửi">Chưa gửi</option>
+            <option value="Đã gửi lời mời">Đã gửi lời mời</option>
+            <option value="Đã kết nối">Đã kết nối</option>
+            <option value="Đã phỏng vấn">Đã phỏng vấn</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Ghi chú:</label>
+          <textarea id="alumniNotes" rows="2"></textarea>
+        </div>
+        <button type="submit" class="action-btn" style="width: 100%;">Lưu thông tin</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Thêm KPI -->
+  <div id="kpiModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal('kpiModal')">&times;</button>
+      <h3>Cập nhật KPI Tuần</h3>
+      <form id="kpiForm" onsubmit="addKPI(event)">
+        <div class="form-group">
+          <label>Tuần số:</label>
+          <input type="number" id="kpiWeek" min="2" max="12" required>
+        </div>
+        <div class="form-group">
+          <label>Số Connections hiện tại:</label>
+          <input type="number" id="kpiConnections" min="0" required>
+        </div>
+        <div class="form-group">
+          <label>Số lời mời đã gửi thêm:</label>
+          <input type="number" id="kpiInvites" min="0" required>
+        </div>
+        <div class="form-group">
+          <label>Số Interviews đã thực hiện thêm:</label>
+          <input type="number" id="kpiInterviews" min="0" required>
+        </div>
+        <div class="form-group">
+          <label>Số bài đăng LinkedIn:</label>
+          <input type="number" id="kpiPosts" min="0" required>
+        </div>
+        <div class="form-group">
+          <label>Ghi chú / Tự đánh giá:</label>
+          <textarea id="kpiNotes" rows="2"></textarea>
+        </div>
+        <button type="submit" class="action-btn success" style="width: 100%;">Lưu KPI</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let alumniData = [
+      { name: "Nguyễn Văn A", job: "Trade Analyst @ ABC MNC", year: 2020, status: "Đã gửi lời mời", notes: "Gửi kèm tin nhắn cá nhân hóa" },
+      { name: "Trần Thị B", job: "Logistics Manager @ XYZ", year: 2021, status: "Đã kết nối", notes: "Sẵn sàng interview" }
+    ];
+
+    let kpiData = [];
+
+    let totalConnections = 0;
+    let totalInvites = 0;
+    let totalInterviews = 0;
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile table optimization
+      const tables = document.querySelectorAll('table');
+      tables.forEach(table => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive-wrapper';
+        table.parentNode.insertBefore(wrapper, table);
+        wrapper.appendChild(table);
+      });
+
+      renderAlumni();
+      updateMetrics();
+    });
+
+    // Tab switching logic
+    function switchTab(event, tabId) {
+      // Hide all tab contents
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(content => content.classList.remove('active'));
+
+      // Remove active class from all tab buttons
+      const tabs = document.querySelectorAll('.tab-btn');
+      tabs.forEach(tab => tab.classList.remove('active'));
+
+      // Show selected tab content and activate button
+      document.getElementById(tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function openModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    window.onclick = function (event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+      }
+    }
+
+    function renderAlumni() {
+      const tbody = document.getElementById('alumniTableBody');
+      tbody.innerHTML = '';
+      alumniData.forEach((item, index) => {
+        let statusColor = 'inherit';
+        if (item.status === 'Đã kết nối' || item.status === 'Đã phỏng vấn') statusColor = 'var(--success)';
+        else if (item.status === 'Đã gửi lời mời') statusColor = 'var(--warning)';
+
+        tbody.innerHTML += `
+        <tr>
+          <td>${index + 1}</td>
+          <td><strong>${item.name}</strong></td>
+          <td>${item.job}</td>
+          <td>${item.year || '-'}</td>
+          <td style="color: ${statusColor}; font-weight: bold;">${item.status}</td>
+          <td>${item.notes}</td>
+        </tr>
+      `;
+      });
+    }
+
+    function addAlumni(e) {
+      e.preventDefault();
+      const newAlumni = {
+        name: document.getElementById('alumniName').value,
+        job: document.getElementById('alumniJob').value,
+        year: document.getElementById('alumniYear').value,
+        status: document.getElementById('alumniStatus').value,
+        notes: document.getElementById('alumniNotes').value
+      };
+      alumniData.push(newAlumni);
+      renderAlumni();
+      closeModal('alumniModal');
+      document.getElementById('alumniForm').reset();
+    }
+
+    function addKPI(e) {
+      e.preventDefault();
+
+      const week = document.getElementById('kpiWeek').value;
+      const connections = parseInt(document.getElementById('kpiConnections').value);
+      const invites = parseInt(document.getElementById('kpiInvites').value);
+      const interviews = parseInt(document.getElementById('kpiInterviews').value);
+      const posts = document.getElementById('kpiPosts').value;
+      const notes = document.getElementById('kpiNotes').value;
+
+      const tbody = document.getElementById('kpiTableBody');
+      tbody.innerHTML += `
+      <tr>
+        <td>Tuần ${week}</td>
+        <td>${connections}</td>
+        <td>+${invites}</td>
+        <td>+${interviews}</td>
+        <td>${posts}</td>
+        <td>${notes}</td>
+      </tr>
+    `;
+
+      // Update global metrics
+      totalConnections = connections; // Last recorded connections
+      totalInvites += invites;
+      totalInterviews += interviews;
+
+      updateMetrics();
+
+      closeModal('kpiModal');
+      document.getElementById('kpiForm').reset();
+    }
+
+    function updateMetrics() {
+      document.getElementById('totalConnections').innerText = totalConnections;
+      document.getElementById('totalInvites').innerText = totalInvites + ' / 50';
+      document.getElementById('totalInterviews').innerText = totalInterviews + ' / 10';
+    }
+
+    function updateProfileStatus() {
+      const checkboxes = document.querySelectorAll('#profileChecklist input[type="checkbox"]');
+      const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+
+      const statusEl = document.getElementById('profileStatus');
+      if (checkedCount === 7) {
+        statusEl.innerText = "All-Star 🎉";
+        statusEl.style.color = "var(--success)";
+      } else {
+        statusEl.innerText = `${checkedCount}/7 (Đang hoàn thiện)`;
+        statusEl.style.color = "var(--warning)";
+      }
+    }
+  </script>
+
+  <footer style="text-align: center; margin-top: 30px; padding: 20px; color: #666; font-size: 0.9rem;">
+    KNPTBT&NN Nhóm 12
+  </footer>
+
+</body>
+
+</html>
