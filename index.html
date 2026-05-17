@@ -901,7 +901,7 @@
       <form id="kpiForm" onsubmit="addKPI(event)">
         <div class="form-group">
           <label>Tuần số:</label>
-          <input type="number" id="kpiWeek" min="2" max="12" required>
+          <input type="number" id="kpiWeek" min="1" max="12" required>
         </div>
         <div class="form-group">
           <label>Số Connections hiện tại:</label>
@@ -1016,6 +1016,7 @@
       };
       alumniData.push(newAlumni);
       renderAlumni();
+      updateMetrics(); // Cập nhật lại chỉ số khi thêm alumni
       closeModal('alumniModal');
       document.getElementById('alumniForm').reset();
     }
@@ -1054,9 +1055,14 @@
     }
 
     function updateMetrics() {
-      document.getElementById('totalConnections').innerText = totalConnections;
-      document.getElementById('totalInvites').innerText = totalInvites + ' / 50';
-      document.getElementById('totalInterviews').innerText = totalInterviews + ' / 10';
+      // Kết hợp số liệu từ danh sách Alumni
+      let alumniInvites = alumniData.filter(a => ['Đã gửi lời mời', 'Đã kết nối', 'Đã phỏng vấn'].includes(a.status)).length;
+      let alumniConnections = alumniData.filter(a => ['Đã kết nối', 'Đã phỏng vấn'].includes(a.status)).length;
+      let alumniInterviewsCount = alumniData.filter(a => a.status === 'Đã phỏng vấn').length;
+
+      document.getElementById('totalConnections').innerText = totalConnections + alumniConnections;
+      document.getElementById('totalInvites').innerText = (totalInvites + alumniInvites) + ' / 50';
+      document.getElementById('totalInterviews').innerText = (totalInterviews + alumniInterviewsCount) + ' / 10';
     }
 
     function updateProfileStatus() {
